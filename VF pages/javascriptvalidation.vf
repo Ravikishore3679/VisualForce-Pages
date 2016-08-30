@@ -1,0 +1,33 @@
+<!--
+
+http://www.cloudforce4u.com/2013/07/javascript-validation-in-visualforce.html
+
+Using java script makes it easy to show validation messages as pop ups in a visualforce page. We can call java script function to validate the Input value and subsequently show a pop up message to indicate to the user. 
+
+Following visualforce page uses java script to check if the user had typed Expected price after submit button is pressed.
+
+
+validateFunction receives html id of the inputtext (Expected price) and from this id checks whether any input was provided, if there was no input then a alert pop is shown.
+
+-->
+
+<!-- Using java script for validation in a visualforce page -->
+<apex:page standardcontroller="Account">
+  <apex:form >
+        <apex:pageBlock >
+           Expected price  : <apex:inputText id="inptpriceID"/>
+                       <apex:commandButton onclick="validateFunction('{!$Component.inptpriceID}')" value=" Submit Price"/>
+        </apex:pageBlock>
+  </apex:form>
+  
+  <!-- Java script starts Here -->
+  <script>
+   function validateFunction(amountinputID){
+       var inputAmount = document.getElementById(amountinputID).value;
+         if(inputAmount == ''){
+            alert('Please enter amount before submitting price');
+         } 
+  }
+  </script> 
+ <!-- java script ends here -->  
+</apex:page>

@@ -1,0 +1,52 @@
+public class DeletingCheckedRowsController209 {
+    public List<WrapperClass> listWrapper {get;set;}
+    public Boolean allBool {get;set;}
+    
+    public DeletingCheckedRowsController209() {
+        listWrapper = new List<WrapperClass>();
+        List<Student__c> listEmp = [SELECT Name, City__c FROM Student__c];
+        if(listEmp.size() > 0) {
+            for(Student__c emp : listEmp) {
+                listWrapper.add(new WrapperClass(emp));
+            }
+        }
+    }
+    
+    public class WrapperClass {
+        public Boolean checked {get;set;}
+        public Student__c emp {get;set;}
+        public WrapperClass(Student__c emp) {
+            this.emp = emp;
+        }
+    }
+    
+    public void del() {
+        List<Student__c> listEmpForDel = new List<Student__c>();
+        List<WrapperClass> listTempWrapper = new List<WrapperClass>();
+        for(WrapperClass w : listWrapper) {
+            if(w.checked) {
+                listEmpForDel.add(w.emp);
+            } else {
+                listTempWrapper.add(w);
+            }
+        }
+        if(listEmpForDel.size() > 0) {
+            delete listEmpForDel;
+            listWrapper = listTempWrapper;
+        } else {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Select atleast one student to delete'));
+        }
+    }
+    
+    public void selectAll() {
+        if(allBool) {
+            for(WrapperClass w : listWrapper) {
+                w.checked = true;
+            }
+        } else {
+            for(WrapperClass w : listWrapper) {
+                w.checked = false;
+            }
+        }
+    }
+}

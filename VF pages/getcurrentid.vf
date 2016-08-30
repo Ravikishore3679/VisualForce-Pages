@@ -1,0 +1,14 @@
+<!--
+May times we require the current record id in controller. For example if you have a button on detail page overridden by 
+visualforce page and once the button is pressed you require the id(or the other field values of that record) of the record
+ from whose detail page the button was clicked. For this we can use ApexPages.CurrentPage().getparameters().get('id').
+In the following example the custom button on account(overridden with following vf page) when clicked shows you the id of 
+the record in visualforc apge.
+-->
+<apex:page standardController="Account" extensions="SimpleDemoController89">
+  <apex:form >
+    <apex:pageBlock >
+        Id of the current record is : <b>{!recordId}</b>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<!--
+Many times it is required to show warning,error or information messages on a visualforce page so as to indicate to the user. For these, salesforce provides page message,pagemessages,message and messages components.
+We have to create a new instance of the message in apex and make sure we have placed the messages component on the visualforce page.
+In the below example messages are displayed on button press if any of the input values are not submitted
+http://www.cloudforce4u.com/2013/07/show-error-message-in-visualforce.html
+-->
+
+<apex:page standardController="Account" extensions="ErrorDisplayDemoController">
+ <apex:form >
+   <apex:pageblock >
+      <apex:pageMessages id="shwmsg"></apex:pageMessages>
+         <apex:panelGrid columns="2">
+           Account Name <apex:inputtext value="{!accountname}"/>
+           Account Number <apex:inputtext value="{!accountnumber}"/>
+           <apex:commandButton value="Update e" action="{!UpdateAccount}" style="width:70px" rerender="shwmsg"/>
+         </apex:panelGrid>
+    </apex:pageblock>
+ </apex:form>
+</apex:page>

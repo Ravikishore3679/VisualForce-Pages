@@ -1,0 +1,40 @@
+<!--
+
+http://www.cloudforce4u.com/2013/06/actionfunction-in-apex.html
+
+Its easy to call a controller method for most of the attributes using action="{!Yourmethode_Name}", but what if you were to call the controller method from java script?
+
+One way to do this is by using Action Function. Expertise will definitely be able to use this in complex scenarios. This post is for those who haven't had hands on action function before and want to know how to use it.
+
+Lets take a scenario and work on it:
+
+
+
+You have a checkbox and you are calling javascript function on click of this checkbox. 
+And now once you are in js you wish to modify some variable or do something in your controller class. 
+
+Say you want to put some value for a variable in controller and then display it on your page. this will require calling your class method from js.
+
+Lets understand this by example
+
+-->
+
+<apex:page standardcontroller="Account" extensions="actionFunctionController116" tabStyle="Account">
+    <apex:form >
+     <apex:outputText value="{!MyString_From_Methode}" id="outputtxtId1"></apex:outputText> 
+       <apex:actionFunction name="actionFunName" action="{!ActionFunMethode}" reRender="outputtxtId1"/>
+       <apex:pageBlock > 
+            <apex:outputLabel for="inptCheckBox" value="Check this box to call Controller method from js using ActionFunction" style="color:green;"></apex:outputLabel> 
+            <apex:inputcheckbox onclick="actionFunName()" id="inptCheckBox"/>
+       </apex:pageBlock> 
+      
+      <apex:outputText value="{!MyString_From_Methode}" id="outputtxtId"></apex:outputText> 
+    </apex:form> 
+   <!-- 
+    <script>
+      function javaScrpt(){
+       actionFunName(); 
+      }
+    </script>
+     -->
+</apex:page>

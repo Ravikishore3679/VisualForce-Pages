@@ -1,0 +1,9 @@
+public class navigatetootherpage205 {
+ public navigatetootherpage205() {
+    
+    }
+    
+    public PageReference next() {
+        return Page.Sample1;
+    }
+}

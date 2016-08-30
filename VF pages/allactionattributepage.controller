@@ -1,0 +1,46 @@
+public class allactionsController{
+ public ApexPages.StandardSetController con {
+        get {
+                if(con == null) {
+                    con = new ApexPages.StandardSetController(Database.getQueryLocator([Select Name, City__c FROM Student__c Order By Name limit 100])); 
+                    con.setPageSize(5);                      
+                }
+                return con;
+        }
+        set;
+    }
+    
+    public List<Student__c> getlistMember(){
+        return (List<Student__c>)con.getRecords();
+    }
+    
+    
+   // handle the action of the commandlink
+    public PageReference processLinkClick() {
+        System.debug('nickName: ');
+        // now process the variable by doing something... 
+        PageReference pageRef = Page.TestPage2;
+        return pageRef ;
+    }
+   public String contIdChosen {get; set;}
+      public boolean ab{get; set;}
+         public PageReference delCont()
+{
+ Student__c toDel=new Student__c (id=contIdChosen);
+  
+ delete todel;
+  
+  //setupContacts();
+getlistMember();
+// ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Error Message.'));
+ //PageReference pageRef = Page.allactionattributesPage;
+ ab=true;
+  ApexPages.Message msg = new Apexpages.Message(ApexPages.Severity.Warning,'No Record Found' );
+  
+     ApexPages.addmessage(msg);
+      return null; 
+}
+
+
+ 
+}

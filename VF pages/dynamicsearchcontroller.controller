@@ -1,0 +1,31 @@
+public with sharing class dynamicsearchcontroller138 {
+
+public boolean table1 { get; set; }
+
+public PageReference Search() {
+table1=false;
+lststr1=new list<String>();
+string str='';
+//System.debug('*****************************'+txtval);
+System.debug('***************list values*****************'+lststr.size());
+for(integer i=0;i < lststr.size();i++){
+if(lststr[i] == txtval ){
+System.debug('***************list values*****************'+lststr[i]);
+
+str=+txtval;
+System.debug('***************tested values******************'+str);
+lststr1.add(str);
+}
+
+}
+return null;
+}
+
+public String txtval { get; set; }
+public list<string> lststr1{get;set;}
+public list<String> lststr{get;set;}
+public dynamicsearchcontroller138(){
+table1=true;
+lststr=new list<String>{'Team A','Team B','Team C','Team A'};
+}
+}

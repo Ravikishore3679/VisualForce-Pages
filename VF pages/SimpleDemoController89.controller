@@ -1,0 +1,6 @@
+Public with sharing class SimpleDemoController89 {
+Public string recordId {get;set;}
+    Public SimpleDemoController89(ApexPages.StandardController controller) {
+      recordID = ApexPages.CurrentPage().getparameters().get('id');
+    }
+}

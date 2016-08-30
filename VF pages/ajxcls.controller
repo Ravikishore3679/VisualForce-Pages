@@ -1,0 +1,16 @@
+public with sharing class ajaxcls {
+
+    public string name{get; set;}
+   
+    public ajaxcls(){
+        name='Tc Technologies';
+    }
+    
+    public void changeName(){
+        name='Good Morning';
+    }
+   
+    public void unchangeName(){
+        name=' Technologies';
+    }
+}

@@ -1,0 +1,29 @@
+<!-- A custom label can used to store a desired text value of length up to 1000. A custom label value can then be referenced by apex code or visualforce page. A custom label can store values of length up to 1000 characters in it. We can have a total of 5000 custom labels in an org.
+Create a custom label by navigating to set up -> create -> custom label
+
+In the below example let us see how we can access the custom label in visualforce page directly.
+
+Visualforce page that accesses the custom label 
+
+http://www.cloudforce4u.com/2013/11/using-custom-label-in-visualforce-page.html
+
+-->
+<apex:page >
+   <apex:form >
+     <apex:pageblock >
+      This project name is : {!$Label.projectname}
+     </apex:pageblock>
+   </apex:form>
+
+</apex:page>
+
+
+
+<!--- custom label:
+Short Description	projectname         	Name	projectname
+Language	English	                        Protected Component	Checked
+Categories	
+Value	king hospitals
+Created By	Raja CRM, 1/15/2016 8:13 AM	Modified By	Raja CRM, 1/15/2016 8:15 AM
+
+--->

@@ -1,0 +1,10 @@
+public with sharing class sample199
+{
+
+    public List<Account> acc {get;set;}
+    public sample199()
+    {
+        acc = [SELECT Name, AccountNumber FROM Account];
+    }  
+    
+}

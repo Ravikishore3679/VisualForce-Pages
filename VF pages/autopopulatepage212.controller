@@ -1,0 +1,12 @@
+public class autopopulatecon212 {
+    public Student__c studenc {get;set;}
+    public College__c college {get;set;}
+    public autopopulatecon212(){
+        studenc = new Student__c();
+    }
+    
+    public void fetchMemberDetails(){
+        college = [SELECT College_Name__c FROM College__c WHERE Id = : studenc.College_Name__c];
+        studenc.College_Name__c = college.Name;
+    }
+}

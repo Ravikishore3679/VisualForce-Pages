@@ -1,0 +1,57 @@
+public class paginationpagecon212 {
+ public ApexPages.StandardSetController con {
+        get {
+                if(con == null) {
+                    con = new ApexPages.StandardSetController(Database.getQueryLocator([Select Name, City__c FROM Student__c Order By Name limit 100])); 
+                    con.setPageSize(5);                      
+                }
+                return con;
+        }
+        set;
+    }
+    
+    public List<Student__c> getlistMember(){
+        return (List<Student__c>)con.getRecords();
+    }
+    
+    public Boolean hasNext {
+        get {
+                return con.getHasNext();
+            }
+        set;
+    }
+   
+    public Boolean hasPrevious {
+        get {
+            return con.getHasPrevious();
+        }
+        set;
+    }
+   
+    public Integer pageNumber {
+        get {
+            return con.getPageNumber();
+        }
+        set;
+    }
+   
+    public void first() {
+        con.first();
+    }
+   
+    public void last() {
+        con.last();
+    }
+
+    public void previous() {
+        con.previous();
+    }
+    
+    public void next() {
+        con.next();
+    }
+  
+    public void cancel() {
+        con.cancel();
+    }        
+}

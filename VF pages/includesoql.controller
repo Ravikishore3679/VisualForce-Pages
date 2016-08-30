@@ -1,0 +1,8 @@
+public class includesoql208 {
+public List<Student__c> empList {get;set;}
+    public Integer empCount {get;set;}
+    public includesoql208() {
+        empList = [SELECT Name, City__c FROM Student__c];
+        empCount = empList.size();
+    }
+}

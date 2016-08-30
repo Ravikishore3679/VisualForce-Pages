@@ -1,0 +1,13 @@
+<apex:page controller="Sample204">
+    <style type = "text/css">
+        .colHeadr {text-align:right;}     
+    </style>
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!listEmp}" var="e" border="1">
+                <apex:column styleClass="rightAlign" value="{!e.City__c}"/>
+                <apex:column styleClass="rightAlign" value="{!e.College_Name__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

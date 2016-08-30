@@ -1,0 +1,22 @@
+<!-- 
+This component displays all messages that were generated for all components on the current page, presented using the 
+Salesforce styling. - See more at: http://sfdcgurukul.blogspot.in/2013/08/apexpagemessages.html#sthash.JgCqpJ50.dpuf
+-->
+
+<apex:page standardController="Opportunity" recordSetVar="opportunities"     tabStyle="Opportunity" sidebar="true">     
+<p>Enter an alphabetic character for the "Close Date,"        then click Save to see what happens.</p>     
+   <apex:form >         
+      <apex:pageBlock >         
+         <apex:pageMessages />         
+            <apex:pageBlockButtons >             
+               <apex:commandButton value="Save" action="{!save}"/>         
+            </apex:pageBlockButtons>             
+            <apex:pageBlockTable value="{!opportunities}" var="opp">                 
+               <apex:column value="{!opp.name}"/>                 
+               <apex:column headerValue="Close Date">                     
+                  <apex:inputField value="{!opp.closeDate}"/>                 
+               </apex:column>             
+            </apex:pageBlockTable>         
+       </apex:pageBlock>     
+    </apex:form> 
+</apex:page>

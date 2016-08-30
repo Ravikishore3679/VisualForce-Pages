@@ -1,0 +1,14 @@
+<apex:page >
+    <script>
+    function show(){
+        alert('Are you Sure to proceed ');
+    }
+</script>
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="bottom">            
+            <apex:commandButton value="Store" onclick="show();" />
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,80 @@
+<apex:page standardcontroller="Campaign" extensions="MassEmailFromCampaign253" >
+<!-- Javascript function to check all rows in the table -->
+<script>
+function checkAll(cb)
+{
+   var inputElem = document.getElementsByTagName("input");
+   for(var i=0;i<inputElem.length;i++)
+     {
+             if(inputElem[i].id.indexOf("selectLine1")!=-1)
+                   inputElem[i].checked = cb.checked;
+      }
+}
+</script>
+<!-- End of Javascript function -->
+<apex:form >
+<apex:sectionHeader title="Step 1" subtitle="Select Contacts to send Email"/>
+<apex:pageblock >
+<apex:pageBlockSection title="Search Contacts" columns="1"></apex:pageBlockSection>
+
+<!-- Div to give a colored box effect -->
+
+<div style="border-width:2px;border-style:solid;border-color:orange;">
+
+    <!-- Panel grid to display boxes o accept user input values -->
+    <apex:panelGrid columns="2">
+        <apex:outputLabel style="font-weight:bold;" value="Contact E-mail" ></apex:outputLabel>
+        <apex:inputText value="{!userinput}"/>
+        <apex:outputLabel style="font-weight:bold;" value="Contact Name" ></apex:outputLabel>
+        <apex:inputText value="{!userinp}"/>
+    </apex:panelGrid>
+    <!-- End of panelgrid -->
+    <!-- Div to position the commandbutton appropriately -->
+        <div style="position:relative;left:75px;">
+             <apex:commandButton value="Search" action="{!contactsearch}" />
+        </div>
+    <!-- End of div -->
+        <br/>
+</div>
+
+<!-- End of colored box div -->
+    <br/>
+<!-- Display error message -->
+<apex:pagemessage strength="2" title="Error!!" severity="error" detail="Please select a contact or enter email address to proceed" rendered="{!errormsg}"/>
+<!-- End of error message -->
+
+<!-- Display search results -->
+<apex:pageblocksection columns="1" title="Search results" rendered="{!NOT(ISNULL(results))}" >
+  <apex:outputpanel id="Contactlist">
+
+        <apex:pageBlockTable value="{!results}" var="contacts">
+             <apex:column >
+                <apex:facet name="header">
+                    <apex:inputCheckbox onclick="checkAll(this)"/>
+                </apex:facet>
+                    <apex:inputCheckbox value="{!contacts.selected}" id="selectLine1"/>
+            </apex:column>
+            <apex:column headervalue="Contact Name">
+                <apex:outputtext value="{!contacts.con.Name}"/>
+            </apex:column>
+            <apex:column headervalue="Account Name">
+                <apex:outputtext value="{!contacts.con.Account.Name}"/>
+            </apex:column>
+            <apex:column headervalue="Title">
+                <apex:outputtext value="{!contacts.con.Title}"/>
+            </apex:column>
+        </apex:pageBlockTable>  <br/><br/>
+
+    </apex:outputpanel>
+</apex:pageblocksection>
+<!-- End of search results -->
+
+<!-- Commandbutton to proceed to next screen -->
+  <div style="position:relative;left:75px;">
+      <apex:commandButton value="Next" action="{!processSelected}"/>
+      <apex:commandbutton value="Cancel" action="{!Cancel}"/>
+  </div>
+<!-- End of Commandbutton -->
+</apex:pageblock>
+</apex:form>
+</apex:page>

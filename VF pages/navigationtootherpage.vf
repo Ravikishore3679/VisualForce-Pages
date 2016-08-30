@@ -1,0 +1,10 @@
+<apex:page controller="navigatetootherpage205">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="top"> 
+            First Page
+            <apex:commandButton value="Next Page" action="{!next}"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,60 @@
+<!--
+
+PageBlockTable:
+
+
+PageBlockTable should be define inside pageblock or pageblocksection.
+PageBlockTable uses standard styles sheets to design a visualpage.
+It has the  required attribute "value".
+Column headers  will be displayed automatically.
+
+DataTable:
+
+No need to write inside pageblock or pageblocksection.
+There is no required value.
+The  data can be displayed using  custom style sheets.
+we need to specify column headers explicitly.
+
+Repeater:
+
+There is no proper alignment of data in repeater compared with DataTable.
+
+Datalist:
+How a single item should appear in the list 
+
+
+-->
+
+<apex:page controller="sample199" sidebar="false" >
+<style type="text/css">
+    .outBorder
+    {
+        border:3px outset black;
+    }
+    
+    .inBorder
+    {
+        border-top:3px dotted black;
+        border-left:3px dotted black;
+    }    
+</style>
+    <apex:pageBlock title="Pageblock Table" >
+        <apex:pageblockTable value="{!acc}" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Name}"/>            
+        </apex:pageblockTable>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="Data Table">
+        <apex:dataTable value="{!acc}" var="a" styleClass="outBorder" width="550px" >
+            <apex:column styleClass="inBorder">
+                <apex:facet name="header">Account Namee</apex:facet>
+                <apex:outputText >{!a.Name}</apex:outputText>
+            </apex:column>       
+            <apex:column styleClass="inBorder">
+                <apex:facet name="header">Account Numberr</apex:facet>
+                <apex:outputText >{!a.AccountNumber}</apex:outputText>
+            </apex:column>              
+        </apex:dataTable>
+    </apex:pageBlock>    
+</apex:page>

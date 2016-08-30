@@ -1,0 +1,20 @@
+<apex:page controller="dynamicsearchcontroller138">
+<apex:form >
+<style>
+         tr.dataRow {
+           background-color:silver;
+         }
+         </style>
+<apex:pageBlock >
+Enter Your Text:<apex:inputText value="{!txtval}" />
+<apex:commandButton action="{!Search}" value="Search" />
+<apex:pageBlockTable value="{!lststr}" var="l" rendered="{!table1}" id="pbt">
+<apex:column value="{!l}" headerValue="Team Names"/>
+</apex:pageBlockTable>
+
+<apex:pageBlockTable value="{!lststr1}" var="l1" >
+<apex:column value="{!l1}"/>
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

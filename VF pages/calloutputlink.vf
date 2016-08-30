@@ -1,0 +1,15 @@
+<!-- 
+This tag creates a link to a URL. 
+The below code displays the text www.salesforce.com as a hyperlink text on the visual force page and 
+when this link is clicked the URL specified in the value attribute will be opened. The body of an < apex:outputLink > can be text or an image. - See more at: http://sfdcgurukul.blogspot.in/2013/07/apexoutputlink.html#sthash.qz1BCF0R.dpuf
+-->
+<apex:page standardController="Account">
+
+    <apex:form >
+        <apex:pageBlock title="My Content" mode="edit">
+            <apex:pageBlockSection title="My Content Section" columns="1">
+              <apex:outputLink value="https://www.salesforce.com">MySite</apex:outputLink>
+            </apex:pageBlockSection>                
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

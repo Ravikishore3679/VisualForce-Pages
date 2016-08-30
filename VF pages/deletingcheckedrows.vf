@@ -1,0 +1,22 @@
+<apex:page controller="DeletingCheckedRowsController209">
+<apex:pagemessages />
+    <apex:form >
+        <apex:pageBlock id="pg" title="delete records">
+           <apex:pageBlockTable value="{!listWrapper}" var="w">
+               <apex:column > 
+                   <apex:facet name="header">
+                       <apex:inputCheckbox value="{!allBool}">
+                           <apex:actionSupport reRender="pg" action="{!selectAll}" event="onchange"/>
+                       </apex:inputCheckbox>
+                   </apex:facet>
+                   <apex:inputCheckbox value="{!w.checked}"/>
+               </apex:column>
+               <apex:column value="{!w.emp.Name}"/>
+               <apex:column value="{!w.emp.City__c}"/>
+            </apex:pageBlockTable> 
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Delete" action="{!del}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

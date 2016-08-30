@@ -1,0 +1,7 @@
+public class Sample204 {
+    public List<Student__c> listEmp {get;set;}
+    public Sample204() {
+        listEmp = new List<Student__c>();
+        listEmp = [SELECT City__c, College_Name__c FROM Student__c];
+    }
+}

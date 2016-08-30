@@ -1,0 +1,6 @@
+<apex:page controller="ajaxcls">
+      <apex:form >
+          <apex:outputLabel id="ol" >{!name}</apex:outputLabel>
+          <apex:actionPoller interval="10" action="{!changeName}" reRender="ol"/>
+      </apex:form>
+</apex:page>

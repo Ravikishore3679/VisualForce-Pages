@@ -1,0 +1,4 @@
+<apex:page >
+     <c:myComponent myValue="My component's value"  borderColr="green"/>
+    <c:myComponent anothermyValue="My anothermyValue value"  borderColr="green"/>
+</apex:page>

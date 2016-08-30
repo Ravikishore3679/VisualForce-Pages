@@ -1,0 +1,117 @@
+<!--
+
+
+
+
+salesforce developer login 
+        
+        https://developer.salesforce.com/en/signup?d=70130000000td6N
+        
+        User 1:
+         
+        manju.crm3@gmail.com     
+        13lordlord       
+                      
+        User 2:
+                        
+        manju.javapune@gmail.com
+            2lordlord
+                
+        User 3:
+                
+            chandrar.2299@gmail.com 
+                13lordlord
+                
+        User 4:     
+            chandrar.2288@gmail.com 
+                13lordlord
+                
+        User 5:         
+                raj.chandra999@gmail.com
+                13lordlord
+                
+        User 6: 
+                chandra.java99@gmail.com
+                13lordlord
+                
+        User 7: 
+                chandra.sapep@gmail.com
+                13lordlord
+                
+        User 8:  live examples
+                chandra.sapep@gmail.com
+                13lordlord
+                
+        User 9:  bened examples 
+        
+                79chandra@gmail.com
+                13lordlord
+                
+        User 10:    
+                
+                raj.9944@gmail.com
+                13lordlord
+                
+        User 10:    
+                
+                raja.sfdc2@gmail.com
+                13lordlord
+                
+    manju.salesforcecrm@gmail.com   - naukri  and monster   -------------  hyderabad - 2.6  years   pnamasthe
+    manju.crm3@gmail.com -  naukri  and monster  ----------  chennai    - 3  years    amadanapalle
+        
+    manju.salescrm@gmail.com - naukri  and monster    ------------- bangalore  - 2.6 years
+    manju.salesforce@gmail.com -  naukri  and monster  ---------- bangalore - 3   years   kartikeya123
+
+    manju.cresume@gmail.com - naukri  and monster    -------------  hyderabad   -  3  years    hyderabad 
+    manju.socket@gmail.com -  naukri  and monster  ----------  pune    - 3   years     pnamasthe 
+          
+    for 3 years ---    rajasfdc3@gmail.com
+    for 2 years ---    chandra.sfdc6@gmail.com     
+    
+
+rsfdc15@gmail.com
+    
+    Institute
+    
+
+
+batch0208@gmail.com
+salesforce123
+
+batch0207@qedge.com
+salesforce123
+
+
+-->
+
+<apex:page controller="allactionsController" showHeader="false">
+    <apex:form >
+    <apex:messages />
+        <apex:message />
+      <apex:pageMessage summary="This is a pageMessage" severity="info" strength="3"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!listMember}" var="m">
+                  <apex:column >
+
+      <!-- <apex:outputLink title="" value="/{!m.id}/e?retURL=/apex/{!$CurrentPage.Name}" style="font-weight:bold">Edit</apex:outputLink>&nbsp;|&nbsp;
+-->
+
+
+<apex:commandButton value="Del" action="{!delCont}" rerender="all">
+   <apex:param name="contIdParam" value="{!m.id}" assignTo="{!contIdChosen}"/>
+</apex:commandButton>
+<apex:commandLink value="Edit" action="{!processLinkClick}"/>
+
+     </apex:column>
+
+                    <apex:column value="{!m.Name}"/>
+                    <apex:column value="{!m.City__c}"/>
+                    
+                </apex:pageBlockTable>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
